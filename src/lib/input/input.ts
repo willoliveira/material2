@@ -70,6 +70,7 @@ export const _MatInputMixinBase = mixinErrorState(MatInputBase);
     // the native input element. Otherwise property bindings for those don't work.
     '[attr.id]': 'id',
     '[attr.placeholder]': 'placeholder',
+    '[attr.autocomplete]': 'autocomplete',
     '[disabled]': 'disabled',
     '[required]': 'required',
     '[readonly]': 'readonly',
@@ -148,6 +149,13 @@ export class MatInput extends _MatInputMixinBase implements MatFormFieldControl<
   get id(): string { return this._id; }
   set id(value: string) { this._id = value || this._uid; }
   protected _id: string;
+
+  /**
+   * Implemented as part of MatFormFieldControl.
+   * @docs-private
+   */
+  @Input() autocomplete: string;
+
 
   /**
    * Implemented as part of MatFormFieldControl.
